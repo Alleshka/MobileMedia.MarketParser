@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileMedia.MarketParser.Model", "MobileMedia.MarketParser.Model\MobileMedia.MarketParser.Model.csproj", "{5CC17D88-9757-445F-8830-D9591D88406F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileMedia.MarketParser.Parser", "MobileMedia.MarketParser.Parser\MobileMedia.MarketParser.Parser.csproj", "{A675BC29-9507-4645-BB0A-B26F05E7245B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileMedia.MarketParser.GUI.ConsoleGUI", "MobileMedia.MarketParser.GUI.ConsoleGUI\MobileMedia.MarketParser.GUI.ConsoleGUI.csproj", "{99BAA5C9-AC99-4BB9-B9C4-BB4B5B00C8E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileMedia.MarketParser.WebApi", "MobileMedia.MarketParser.WebApi\MobileMedia.MarketParser.WebApi.csproj", "{023CBBCD-9F91-43D7-89D1-D7E25617F5E4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CC17D88-9757-445F-8830-D9591D88406F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC17D88-9757-445F-8830-D9591D88406F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC17D88-9757-445F-8830-D9591D88406F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC17D88-9757-445F-8830-D9591D88406F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A675BC29-9507-4645-BB0A-B26F05E7245B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A675BC29-9507-4645-BB0A-B26F05E7245B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A675BC29-9507-4645-BB0A-B26F05E7245B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A675BC29-9507-4645-BB0A-B26F05E7245B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99BAA5C9-AC99-4BB9-B9C4-BB4B5B00C8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BAA5C9-AC99-4BB9-B9C4-BB4B5B00C8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BAA5C9-AC99-4BB9-B9C4-BB4B5B00C8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BAA5C9-AC99-4BB9-B9C4-BB4B5B00C8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023CBBCD-9F91-43D7-89D1-D7E25617F5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023CBBCD-9F91-43D7-89D1-D7E25617F5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023CBBCD-9F91-43D7-89D1-D7E25617F5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023CBBCD-9F91-43D7-89D1-D7E25617F5E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
