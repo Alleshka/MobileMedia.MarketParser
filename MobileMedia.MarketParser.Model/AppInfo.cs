@@ -12,6 +12,7 @@ namespace MobileMedia.MarketParser.Model
         public String PackageName { get; set; }
         public String IconUrl { get; set; }
         public double AveregeRate { get; set; }
+        public String RateCount { get; set; }
         public String InstallCount { get; set; }
         public String Description { get; set; }
         public String NewInfo { get; set; }
@@ -29,6 +30,7 @@ namespace MobileMedia.MarketParser.Model
             message.Append($"Package: {PackageName} \n");
             message.Append($"Icon: {IconUrl} \n");
             message.Append($"Rate: {AveregeRate} \n");
+            message.Append($"RateCount: {RateCount} \n");
             message.Append($"Installs: {InstallCount} \n");
             message.Append($"Description: {Description} \n\n");
             message.Append($"New: {NewInfo} \n\n");

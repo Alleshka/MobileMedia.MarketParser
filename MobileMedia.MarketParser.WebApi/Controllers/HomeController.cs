@@ -14,5 +14,21 @@ namespace MobileMedia.MarketParser.WebApi.Controllers
 
             return View();
         }
+
+        public ViewResult Task1()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Task2()
+        {
+            return View();
+        }
+
+        public ActionResult AppInfoViewer(String app)
+        {
+            return PartialView(app);
+        }
     }
 }

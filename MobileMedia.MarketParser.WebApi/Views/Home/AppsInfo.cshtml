@@ -1,0 +1,126 @@
+﻿@model IEnumerable<MobileMedia.MarketParser.Model.AppInfo>
+
+@{
+    ViewBag.Title = "AppsInfoPage";
+}
+
+    <style type="text/css">
+        .divTable {
+            display: table;
+            width: 95%;
+        }
+
+        .divTableRow {
+            display: table-row;
+        }
+
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+        }
+
+        .divTableCell, .divTableHead {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 2px;
+            width: 7%;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        .divTableDescriptionCell {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 1px;
+            width: 18%;
+        }
+
+        .divTableRateCell {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 1px;
+            width: 2%;
+        }
+
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+            font-weight: bold;
+        }
+
+        .divTableFoot {
+            background-color: #EEE;
+            display: table-footer-group;
+            font-weight: bold;
+        }
+
+        .divTableBody {
+            display: table-row-group;
+        }
+    </style>
+
+    <h2>AppsInfoPage</h2>
+
+    <div id="AppsBlock">
+
+        <div class="divTable">
+            <div class="divTableBody">
+
+                <div class="divTableRow">
+                    <div class="divTableCell">packageName</div>
+                    <div class="divTableCell">Имя</div>
+                    <div class="divTableCell">Иконка</div>
+                    <div class="divTableDescriptionCell">Описание</div>
+                    <div class="divTableRateCell">Средняя оценка</div>
+                    <div class="divTableCell">Количество оценок</div>
+                    <div class="divTableCell">Количество установок</div>
+                    <div class="divTableDescriptionCell">Что нового</div>
+                    <div class="divTableCell">Дата обновления</div>
+                    <div class="divTableCell">E-mail</div>
+                    <div class="divTableCell">Цена</div>
+                    <div class="divTableCell">Внутренние покупки</div>
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="divTableRow">
+                        <div class="divTableCell"><a href="https://play.google.com/store/apps/details?id=@item.PackageName" target="_blank">@item.PackageName</a></div>
+                        <div class="divTableCell">@item.AppName</div>
+                        <div class="divTableCell"><img src="@item.IconUrl" width="60" height="60" /></div>
+                        <div class="divTableDescriptionCell">
+
+                            @if (item.Description.Length >= 100)
+                            {
+                                @Html.Raw(@item.Description.Substring(0, 100) + "...");
+                            }
+                            else
+                            {
+                                @Html.Raw(@item.Description);
+                            }
+
+                        </div>
+                        <div class="divTableRateCell">@item.AveregeRate</div>
+                        <div class="divTableCell">@item.RateCount</div>
+                        <div class="divTableCell">@item.InstallCount</div>
+                        <div class="divTableDescriptionCell">
+
+                            @if (item.NewInfo.Length >= 100)
+                            {
+                                @Html.Raw(@item.NewInfo.Substring(0, 100) + "...");
+                            }
+                            else
+                            {
+                                @Html.Raw(@item.NewInfo);
+                            }
+
+                        </div>
+                        <div class="divTableCell">@item.LastUpdate.ToShortDateString()</div>
+                        <div class="divTableCell">@item.DevEmail</div>
+                        <div class="divTableCell">@item.Price</div>
+                        <div class="divTableCell">@item.MicroPrice</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+

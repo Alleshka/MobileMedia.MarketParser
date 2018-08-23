@@ -37,7 +37,8 @@ namespace MobileMedia.MarketParser.Parser
                 Price = GetAppPrice(page),
                 MicroPrice = GetMicroAppPrice(page),
                 LastUpdate = GetLastUpdate(page),
-                Images = GetImages(page) 
+                Images = GetImages(page),
+                RateCount = GetRateCount(page)
             };
 
             return appInfo;
@@ -132,15 +133,11 @@ namespace MobileMedia.MarketParser.Parser
             var spanList = infoBlock.SelectNodes(".//div[@class=\"BgcNfc\"]").ToList().Find(x=>x.InnerText== "Количество установок");
             var cout = spanList.ParentNode.SelectNodes(".//span[@class=\"htlgb\"]").Reverse().First().InnerText;
             return cout;
-
-
-            // return document.DocumentNode.SelectSingleNode("//*[@id=\"fcxH9b\"]//div[4]//c-wiz//div/div[2]//div//div[1]//div//c-wiz[4]//div//div[2]//div//div[3]//span//div//span").InnerText;
         }
 
         private String GetDescription(HtmlDocument document)
         {
             return document.DocumentNode.SelectSingleNode("//div[@jsname=\"sngebd\"]").InnerHtml;
-            // return document.DocumentNode.SelectSingleNode("//*[@id=\"fcxH9b\"]//div[4]//c-wiz//div//div[2]//div//div[1]//div//c-wiz[1]//c-wiz[3]//div[2]//div//div[2]//div[1]//content//div[1]").InnerHtml;
         }
 
         private String GetNewFeatures(HtmlDocument document)
@@ -157,13 +154,14 @@ namespace MobileMedia.MarketParser.Parser
         {
             var aboutProgram = document.DocumentNode.SelectNodes("//div[@class=\"hAyfc\"]").Reverse().ToList()[0];
             var developDiv = aboutProgram.ChildNodes[1];
-            var links = developDiv.SelectNodes(".//a")[1];
+            var links = developDiv.SelectNodes(".//a").ToList().Find(x=>x.GetAttributeValue("href", "-").Contains("mailto"));
             return links.InnerText;
+
         }
 
         private String GetAppPrice(HtmlDocument document)
         {
-            return "Mb later";
+            return String.Empty;
         }
 
         private String GetMicroAppPrice(HtmlDocument document)
@@ -185,6 +183,13 @@ namespace MobileMedia.MarketParser.Parser
             // TODO: Тупейший вариант
             var fasfpasf = document.DocumentNode.SelectNodes("//span[@class=\"htlgb\"]").Where(x => x.ChildNodes.Count == 1).ToList().Find(x => DateTime.TryParse(x.InnerText, out time));
             return time;
+        }
+
+        private String GetRateCount(HtmlDocument document)
+        {
+            var rateInfo = document.DocumentNode.SelectSingleNode("//span[@class=\"EymY4b\"]").ChildNodes[2].InnerText;
+
+            return rateInfo;
         }
 
         private List<String> GetImages(HtmlDocument document)
