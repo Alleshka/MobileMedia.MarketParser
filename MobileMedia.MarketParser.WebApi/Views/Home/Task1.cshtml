@@ -1,82 +1,32 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Task1";
 }
 
-<style type="text/css">
-    .divTable {
-        display: table;
-        width: 95%;
-    }
 
-    .divTableRow {
-        display: table-row;
-    }
+<div id="divres">
+</div>
 
-    .divTableHeading {
-        background-color: #EEE;
-        display: table-header-group;
-    }
+@Scripts.Render("~/Scripts/MyScripts/renderStartPage.js")
 
-    .divTableCell, .divTableHead {
-        border: 1px solid #999999;
-        display: table-cell;
-        padding: 2px;
-        width: 7%;
-        word-wrap: break-word;
-        word-break: break-all;
-    }
+<script>
+    var array = [
+        "com.perm.kate_new_6",
+        "com.tinder",
+        "com.xiaomi.hm.health",
+        "com.asus.ime",
+        "com.mojang.minecraftpe",
+        "com.asanteegames.magicrampage"
+    ];
 
-    .divTableDescriptionCell {
-        border: 1px solid #999999;
-        display: table-cell;
-        padding: 1px;
-        width: 18%;
-    }
+    // По одному
+    //array.forEach(function (item) {
+    //    $("#result").append(render(getappinfo(JSON.stringify(item))))
+    //});
 
-    .divTableRateCell {
-        border: 1px solid #999999;
-        display: table-cell;
-        padding: 1px;
-        width: 2%;
-    }
+    // Куча
+    var items = JSON.parse(getappsinfo(JSON.stringify(array)));
+    items.forEach(function (item) {
+        $("#result").append(render(JSON.stringify(item)));
+    });
+</script>
 
-    .divTableHeading {
-        background-color: #EEE;
-        display: table-header-group;
-        font-weight: bold;
-    }
-
-    .divTableFoot {
-        background-color: #EEE;
-        display: table-footer-group;
-        font-weight: bold;
-    }
-
-    .divTableBody {
-        display: table-row-group;
-    }
-
-</style>
-
-<head>
-    <script src="~/Scripts/getappsinfo.js" type="text/javascript"></script>
-</head>
-
-<body>
-            <script>
-                var array = [
-                    "com.perm.kate_new_6",
-                    "com.tinder",
-                    "com.xiaomi.hm.health",
-                    "com.asus.ime",
-                    "com.mojang.minecraftpe",
-                    "com.asanteegames.magicrampage"
-                ];
-                var jsonArray = JSON.stringify(array);
-                var inputString = getappsinfo(jsonArray);
-                var html = render(inputString);
-                $("body").append(html);
-            </script>
-            </div>
-        </div>
-</body>

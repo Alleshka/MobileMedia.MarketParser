@@ -10,6 +10,7 @@ using MobileMedia.MarketParser.Parser;
 
 namespace MobileMedia.MarketParser.WebApi.Controllers
 {
+    [CustomExceptionAtribute]
     public class MarketController : ApiController
     {
         private IMarketParser market;

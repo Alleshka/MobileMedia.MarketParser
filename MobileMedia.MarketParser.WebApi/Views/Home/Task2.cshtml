@@ -1,15 +1,25 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Task2";
 }
 
-<head>
-    <script src="~/Scripts/getappsinfo.js" type="text/javascript"></script>
-</head>
-<body>
-    <form>
-        <input type="text" />
-    </form>
-    <script>
+<form action="/" id="searchForm">
+    <input type="text" name="s" placeholder="Search...">
+    <input type="submit" value="Search">
+</form>
 
-    </script>
-</body>
+
+<div id="divres">
+</div>
+@Scripts.Render("~/Scripts/MyScripts/renderStartPage.js")
+
+<script>
+    // Attach a submit handler to the form
+    $("#searchForm").submit(function (event) {
+        event.preventDefault();
+        var $form = $(this),
+            term = $form.find("input[name='s']").val(),
+            item = getappinfo(JSON.stringify(term));
+
+        $("#result").append(render(item));
+    });
+</script>

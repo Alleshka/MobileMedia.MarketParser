@@ -3,7 +3,6 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -15,3 +14,108 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.divTable {
+    display: table;
+    width: 95%;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 2px;
+    width: 6%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.divTableDescriptionCell {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 2px;
+    width: 15%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.divTableRateCell {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 2px;
+    width: 2%;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+}
+
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+
+#btn-show-modal {
+    padding: 10px;
+    color: #777;
+    background: #eee;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#modal-window {
+    position: fixed;
+    top: 10%;
+    right: 25px;
+    left: 25px;
+    width: 90%;
+    background: #fff;
+    text-align: center;
+    display: none;
+    z-index: 1;
+    overflow: auto;
+}
+
+    #modal-window.visible {
+        display: block;
+    }
+
+
+    #modal-window > .modal-content {
+        text-align: center;
+        padding: 25px;
+        font-size: 16px;
+    }
+
+    #modal-window > .modal-close {
+        float: right;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 30px;
+        margin: 15px;
+        color: #ddd;
+    }
+
+        #modal-window > .modal-close:hover {
+            background: #ddd;
+            color: #fff;
+        }
