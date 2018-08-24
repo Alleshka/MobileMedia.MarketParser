@@ -19,7 +19,7 @@ namespace MobileMedia.MarketParser.Model
         public String DevEmail { get; set; }
         public String Price { get; set; }
         public String MicroPrice { get; set; }
-        public DateTime LastUpdate { get; set; }
+        public String LastUpdate { get; set; }
         public List<String> Images { get; set; }
 
         public override string ToString()
@@ -37,7 +37,7 @@ namespace MobileMedia.MarketParser.Model
             message.Append($"Dev: {DevEmail} \n");
             message.Append($"Price: {Price} \n");
             message.Append($"MicroPrice: {MicroPrice} \n");
-            message.Append($"Updated: {LastUpdate.ToShortDateString()} \n");
+            message.Append($"Updated: {LastUpdate} \n");
 
             return message.ToString();
         }

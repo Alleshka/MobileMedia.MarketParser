@@ -161,6 +161,10 @@ namespace MobileMedia.MarketParser.Parser
 
         private String GetAppPrice(HtmlDocument document)
         {
+            var priceBlock = document.DocumentNode.SelectSingleNode("//span[@class=\"oocvOe\"]");
+            String price = priceBlock.SelectSingleNode(".//button[@class=\"LkLjZd ScJHi HPiPcc IfEcue  \"]").GetAttributeValue("aria-label", "-");
+            Regex numberRegex = new Regex("[0-9]+,");
+            return numberRegex.Match(price).Value.Replace(",", "");
             return String.Empty;
         }
 
@@ -177,12 +181,12 @@ namespace MobileMedia.MarketParser.Parser
             else return String.Empty;
         }
 
-        private DateTime GetLastUpdate(HtmlDocument document)
+        private String GetLastUpdate(HtmlDocument document)
         {
             DateTime time = new DateTime();
             // TODO: Тупейший вариант
             var fasfpasf = document.DocumentNode.SelectNodes("//span[@class=\"htlgb\"]").Where(x => x.ChildNodes.Count == 1).ToList().Find(x => DateTime.TryParse(x.InnerText, out time));
-            return time;
+            return time.ToString("dd.MM.yyyy");
         }
 
         private String GetRateCount(HtmlDocument document)
