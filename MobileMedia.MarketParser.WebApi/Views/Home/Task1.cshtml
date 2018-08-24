@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Task1";
+}
+
+
+<div id="divres">
+</div>
+
+@Scripts.Render("~/Scripts/MyScripts/renderStartPage.js")
+
+<script>
+    var array = [
+        "com.perm.kate_new_6",
+        "com.tinder",
+        "com.xiaomi.hm.health",
+        "com.asus.ime",
+        "com.mojang.minecraftpe",
+        "com.asanteegames.magicrampage"
+    ];
+
+    // По одному
+    //array.forEach(function (item) {
+    //    $("#result").append(render(getappinfo(JSON.stringify(item))))
+    //});
+
+    // Куча
+    var items = JSON.parse(getappsinfo(JSON.stringify(array)));
+    items.forEach(function (item) {
+        $("#result").append(render(JSON.stringify(item)));
+    });
+</script>
+

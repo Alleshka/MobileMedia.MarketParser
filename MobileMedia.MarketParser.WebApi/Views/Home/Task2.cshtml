@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Task2";
+}
+
+<form action="/" id="searchForm">
+    <input type="text" name="s" placeholder="Search...">
+    <input type="submit" value="Search">
+</form>
+
+
+<div id="divres">
+</div>
+@Scripts.Render("~/Scripts/MyScripts/renderStartPage.js")
+
+<script>
+    // Attach a submit handler to the form
+    $("#searchForm").submit(function (event) {
+        event.preventDefault();
+        var $form = $(this),
+            term = $form.find("input[name='s']").val(),
+            item = getappinfo(JSON.stringify(term));
+
+        $("#result").append(render(item));
+    });
+</script>
